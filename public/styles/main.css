@@ -1,0 +1,91 @@
+/* 1. إعدادات الصفحة الأساسية - خطوط وألوان الخلفية */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* خط حديث ونظيف */
+    background-color: #0f172a; /* لون كحلي غامق جداً (لون الفضاء) */
+    color: #e2e8f0; /* لون نص أبيض مائل للرمادي ليكون مريح للعين */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* جعل المحتوى في منتصف الشاشة دائماً */
+}
+
+/* 2. الحاوية الرئيسية */
+.container {
+    width: 90%;
+    max-width: 500px; /* عرض مناسب للبطاقة */
+    text-align: center;
+}
+
+/* 3. عنوان الصفحة مع تدرج لوني */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa); /* تدرج أزرق وبنفسجي */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* جعل النص شفافاً ليظهر التدرج */
+}
+
+/* 4. تصميم البطاقة (Card) */
+.card {
+    background-color: #1e293b; /* رمادي غامق */
+    padding: 2rem;
+    border-radius: 20px; /* حواف دائرية ناعمة */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.4); /* ظل قوي ليعطي إيحاء الارتفاع */
+    border: 1px solid #334155; /* حدود خفيفة */
+    transition: transform 0.3s ease; /* تنعيم الحركة */
+}
+
+/* تأثير عند مرور الماوس على البطاقة */
+.card:hover {
+    transform: translateY(-5px); /* ترتفع البطاقة قليلاً للأعلى */
+    border-color: #60a5fa; /* يتغير لون الحدود للأزرق */
+}
+
+/* 5. صورة الشعار */
+.card img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1)); /* توهج خفيف حول الصورة */
+}
+
+/* 6. تفاصيل النصوص */
+h2 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6; /* مسافة بين الأسطر للقراءة المريحة */
+    color: #94a3b8;
+}
+
+/* مربع التفاصيل الوصفية */
+.details {
+    background-color: #0f172a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.95rem;
+    border-left: 4px solid #60a5fa; /* خط أزرق جمالي على اليسار */
+}
+
+/* 7. صندوق الخطأ (Error Box) */
+.error-box {
+    background-color: #450a0a; /* خلفية حمراء غامقة */
+    color: #fca5a5; /* نص أحمر فاتح */
+    border: 1px solid #ef4444;
+    padding: 20px;
+    border-radius: 12px;
+}
