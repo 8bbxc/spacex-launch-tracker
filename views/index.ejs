@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX Launch Tracker</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Latest SpaceX Launch 🚀</h1>
+
+        <% if (locals.missionName) { %>
+            <div class="card">
+                <% if (patchImage) { %>
+                    <img src="<%= patchImage %>" alt="Mission Patch">
+                <% } %>
+                
+                <h2>Mission: <%= missionName %></h2>
+                <p><strong>Date:</strong> <%= new Date(date).toDateString() %></p>
+                
+                <p class="details">
+                    <%= details ? details : "No details available for this mission." %>
+                </p>
+            </div>
+        <% } else if (locals.error) { %>
+            <div class="error">
+                <p><%= error %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
