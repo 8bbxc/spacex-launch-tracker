@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="/space-bg.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <div class="container">
         <h1>Latest SpaceX Launch 🚀</h1>
 
@@ -16,7 +21,6 @@
                 <p><%= error %></p>
             </div>
         <% } 
-        /* التحقق: هل وصلت البيانات؟ */
         else if (locals.data) { %>
             <div class="card">
                 <% if (data.links.patch.small) { %>

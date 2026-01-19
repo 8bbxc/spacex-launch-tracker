@@ -1,4 +1,3 @@
-/* 1. إعدادات الصفحة الأساسية - خطوط وألوان الخلفية */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
 * {
@@ -7,47 +6,66 @@
     box-sizing: border-box;
 }
 
+/* ===== تنسيق فيديو الخلفية ===== */
+#bg-video {
+    position: fixed; /* تثبيت الفيديو في مكانه حتى لو نزلنا بالصفحة */
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1; /* وضعه في طبقة خلفية خلف كل المحتوى */
+    object-fit: cover; /* ضمان تغطية الشاشة بالكامل بدون مطط */
+    filter: brightness(0.6); /* تقليل سطوع الفيديو قليلاً لكي يبرز النص أمامه */
+}
+
 body {
-    font-family: 'Inter', sans-serif; /* خط حديث ونظيف */
-    background-color: #0f172a; /* لون كحلي غامق جداً (لون الفضاء) */
-    color: #e2e8f0; /* لون نص أبيض مائل للرمادي ليكون مريح للعين */
+    font-family: 'Inter', sans-serif;
+    /* background-color: #0f172a;  <-- حذفنا لون الخلفية القديم */
+    color: #e2e8f0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* جعل المحتوى في منتصف الشاشة دائماً */
+    min-height: 100vh;
 }
 
 /* 2. الحاوية الرئيسية */
 .container {
     width: 90%;
-    max-width: 500px; /* عرض مناسب للبطاقة */
+    max-width: 500px;
     text-align: center;
+    /* إضافة تأثير زجاجي خلف المحتوى */
+    backdrop-filter: blur(10px); /* تمويه الفيديو خلف البطاقة */
+    -webkit-backdrop-filter: blur(10px); /* لدعم متصفح سفاري */
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* حدود شفافة خفيفة */
 }
 
 /* 3. عنوان الصفحة مع تدرج لوني */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #60a5fa, #a78bfa); /* تدرج أزرق وبنفسجي */
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* جعل النص شفافاً ليظهر التدرج */
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5)); /* توهج للنص */
 }
 
 /* 4. تصميم البطاقة (Card) */
 .card {
-    background-color: #1e293b; /* رمادي غامق */
+    background-color: rgba(30, 41, 59, 0.8); /* جعلنا الخلفية شبه شفافة */
     padding: 2rem;
-    border-radius: 20px; /* حواف دائرية ناعمة */
+    border-radius: 20px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 
-                0 10px 10px -5px rgba(0, 0, 0, 0.4); /* ظل قوي ليعطي إيحاء الارتفاع */
-    border: 1px solid #334155; /* حدود خفيفة */
-    transition: transform 0.3s ease; /* تنعيم الحركة */
+                0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(96, 165, 250, 0.3); /* حدود زرقاء خفيفة */
+    transition: transform 0.3s ease;
 }
 
 /* تأثير عند مرور الماوس على البطاقة */
 .card:hover {
-    transform: translateY(-5px); /* ترتفع البطاقة قليلاً للأعلى */
-    border-color: #60a5fa; /* يتغير لون الحدود للأزرق */
+    transform: translateY(-5px);
+    border-color: #60a5fa;
 }
 
 /* 5. صورة الشعار */
@@ -55,7 +73,7 @@ h1 {
     width: 150px;
     height: auto;
     margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1)); /* توهج خفيف حول الصورة */
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
 }
 
 /* 6. تفاصيل النصوص */
@@ -67,24 +85,24 @@ h2 {
 
 p {
     margin-bottom: 1rem;
-    line-height: 1.6; /* مسافة بين الأسطر للقراءة المريحة */
-    color: #94a3b8;
+    line-height: 1.6;
+    color: #cbd5e1; /* لون أفتح قليلاً للقراءة فوق الفيديو */
 }
 
 /* مربع التفاصيل الوصفية */
 .details {
-    background-color: #0f172a;
+    background-color: rgba(15, 23, 42, 0.6); /* شبه شفاف */
     padding: 15px;
     border-radius: 10px;
     text-align: left;
     font-size: 0.95rem;
-    border-left: 4px solid #60a5fa; /* خط أزرق جمالي على اليسار */
+    border-left: 4px solid #60a5fa;
 }
 
 /* 7. صندوق الخطأ (Error Box) */
 .error-box {
-    background-color: #450a0a; /* خلفية حمراء غامقة */
-    color: #fca5a5; /* نص أحمر فاتح */
+    background-color: rgba(69, 10, 10, 0.9);
+    color: #fca5a5;
     border: 1px solid #ef4444;
     padding: 20px;
     border-radius: 12px;
